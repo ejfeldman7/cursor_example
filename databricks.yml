@@ -1,0 +1,26 @@
+# Databricks Asset Bundle configuration for deployment
+bundle:
+  name: loan-analytics-dashboard
+  
+workspace:
+  host: https://e2-demo-field-eng.cloud.databricks.com
+
+resources:
+  apps:
+    loan_analytics_streamlit:
+      name: "loan-analytics-dashboard-v2"
+      description: "Interactive Streamlit dashboard for loan portfolio analysis with OBO auth"
+      source_code_path: "."
+
+targets:
+  dev:
+    mode: development
+    workspace:
+      host: https://e2-demo-field-eng.cloud.databricks.com
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+  
+  prod:
+    mode: production
+    workspace:
+      host: https://e2-demo-field-eng.cloud.databricks.com
+      root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}

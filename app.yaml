@@ -1,0 +1,9 @@
+command: ['python', '-m', 'streamlit', 'run', 'app.py', '--server.headless=true']
+
+env:
+  - name: DATABRICKS_WAREHOUSE_ID
+    value: "4b9b953939869799"
+  - name: DATABRICKS_HOST
+    value: "https://e2-demo-field-eng.cloud.databricks.com"
+
+# Service principal authentication - user authorization scopes removed for production
